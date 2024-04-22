@@ -1,6 +1,8 @@
 import classes from "./CartItem.module.scss";
 
-const CartItem = (props: any) => {
+const CartItem: React.FC<{
+  item: { title: String; quantity: number; total: number; price: number };
+}> = (props) => {
   const { title, quantity, total, price } = props.item;
 
   const additemHandler = () => {

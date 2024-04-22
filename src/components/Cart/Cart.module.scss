@@ -1,6 +1,6 @@
 .cart {
-    max-width: 60%;
-    background-color: #cee5f4;
+    max-width: 50%;
+    background-color: #bedef3;
     color: #665a5a;
     padding: 1.5rem;
     border-radius: 8px;
@@ -15,7 +15,7 @@
     margin-bottom: 0.5rem;
   }
 
-  @media(max-width: 40rem){
+  @media(max-width: 45rem){
     .cart h2{
         font-size: 1rem;
     }
@@ -23,6 +23,7 @@
     .cart {
         max-width: 100%;
     }
+
   }
   
   .cartList {
@@ -52,7 +53,7 @@
   }
   
   .proceedButton {
-    background-color: #8fc4f4;
+    background-color: #88c9ea;
     color: white;
     border: none;
     border-radius: 4px;
@@ -62,6 +63,6 @@
   }
   
   .proceedButton:hover {
-    background-color: #5b67e8;
+    background-color: #3629ea;
   }
   
