@@ -1,0 +1,27 @@
+.sd-searchbar{
+  width: 250px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: 45px;
+  display: inline-block;
+} 
+
+.sd-button{
+  display: inline-block;
+}
+
+.sd-cart-btn{
+  position: relative;
+}
+
+.sd-div{
+  position: absolute;
+  top: 4px;
+  right: 1px;
+  background-color: red;
+  width: 16px;
+  height: 16px;
+  font-size: 12px;
+  border-radius: 32px;
+  color: white;
+}
