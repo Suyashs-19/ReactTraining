@@ -1,5 +1,3 @@
-import Cart from "../Cart/Cart";
-
 const Header = () => {
   return (
     <div className="container">
@@ -21,7 +19,6 @@ const Header = () => {
             </a>
           </li>
         </ul>
-        <Cart />
       </header>
     </div>
   );
