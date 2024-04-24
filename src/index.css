@@ -25,3 +25,12 @@
   border-radius: 32px;
   color: white;
 }
+
+.sd-pagination{
+  display: block;
+  margin: auto;
+  width: fit-content;
+  margin-top: 20px;
+  
+}
+
