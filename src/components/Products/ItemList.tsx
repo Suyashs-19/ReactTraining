@@ -1,10 +1,20 @@
+import { Product } from "../../Product";
 import Item from "./Item";
+interface Props {
+  items: Product[];
+}
 
-const ItemList = () => {
+const ItemList = ({ items }: Props) => {
   return (
     <div className="container text-center">
       <div className="row">
-        <Item /> <Item /> <Item />
+        {items.map((item) => (
+          <Item
+            key={item.id}
+            item={item}
+            addItemtoCart={(item) => console.log(item.title)}
+          />
+        ))}
       </div>
     </div>
   );

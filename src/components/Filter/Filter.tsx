@@ -1,5 +1,8 @@
 import { CiFilter } from "react-icons/ci";
-const Filter = () => {
+interface Props {
+  onClickFilter: (value: string) => void;
+}
+const Filter = ({ onClickFilter }: Props) => {
   return (
     <>
       <div className="dropdown">
@@ -14,18 +17,36 @@ const Filter = () => {
         </button>
         <ul className="dropdown-menu">
           <li>
-            <a className="dropdown-item" href="#">
+            <a
+              className="dropdown-item"
+              href="#"
+              onClick={() => {
+                onClickFilter("HighLow");
+              }}
+            >
               Price High to Low
             </a>
           </li>
           <li>
-            <a className="dropdown-item" href="#">
+            <a
+              className="dropdown-item"
+              href="#"
+              onClick={() => {
+                onClickFilter("LowHigh");
+              }}
+            >
               Price Low to High
             </a>
           </li>
           <li>
-            <a className="dropdown-item" href="#">
-              Something else here
+            <a
+              className="dropdown-item"
+              href="#"
+              onClick={() => {
+                onClickFilter("Popularity");
+              }}
+            >
+              Sort by Popularity ⭐
             </a>
           </li>
         </ul>
