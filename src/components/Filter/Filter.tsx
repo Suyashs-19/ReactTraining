@@ -1,8 +1,9 @@
 import { CiFilter } from "react-icons/ci";
-interface Props {
-  onClickFilter: (value: string) => void;
-}
-const Filter = ({ onClickFilter }: Props) => {
+import { useDispatch } from "react-redux";
+import { itemAction } from "../../store/ItemSlice";
+
+const Filter = () => {
+  const dispatch = useDispatch();
   return (
     <>
       <div className="dropdown">
@@ -21,7 +22,7 @@ const Filter = ({ onClickFilter }: Props) => {
               className="dropdown-item"
               href="#"
               onClick={() => {
-                onClickFilter("HighLow");
+                dispatch(itemAction.filterItems("HighLow"));
               }}
             >
               Price High to Low
@@ -32,7 +33,7 @@ const Filter = ({ onClickFilter }: Props) => {
               className="dropdown-item"
               href="#"
               onClick={() => {
-                onClickFilter("LowHigh");
+                dispatch(itemAction.filterItems("LowHigh"));
               }}
             >
               Price Low to High
@@ -43,7 +44,7 @@ const Filter = ({ onClickFilter }: Props) => {
               className="dropdown-item"
               href="#"
               onClick={() => {
-                onClickFilter("Popularity");
+                dispatch(itemAction.filterItems("Popularity"));
               }}
             >
               Sort by Popularity ⭐

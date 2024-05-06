@@ -21,6 +21,7 @@ const Pagination = ({ totalPages, currentPage, handlePageChange }: Props) => {
           </li>
           {Array.from({ length: totalPages }).map((_, index) => (
             <li
+              key={index}
               className={`page-item ${
                 currentPage == index + 1 ? "active" : ""
               }`}

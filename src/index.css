@@ -1,3 +1,13 @@
+.sd-header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: white;
+  /* margin: 50px; */
+}
+
 .sd-searchbar{
   width: 250px;
   margin-top: 40px;
@@ -51,3 +61,4 @@
   height: 100%;
   object-fit: contain;
 }
+

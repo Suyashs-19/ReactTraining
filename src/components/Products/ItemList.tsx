@@ -9,11 +9,7 @@ const ItemList = ({ items }: Props) => {
     <div className="container text-center">
       <div className="row">
         {items.map((item) => (
-          <Item
-            key={item.id}
-            item={item}
-            addItemtoCart={(item) => console.log(item.title)}
-          />
+          <Item key={item.id} item={item} />
         ))}
       </div>
     </div>
