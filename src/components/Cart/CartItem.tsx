@@ -1,10 +1,15 @@
+import { MdDelete } from "react-icons/md";
 import classes from "./CartItem.module.scss";
+// import { useDispatch } from "react-redux";
+import { Product } from "../../Product";
+import { useDispatch } from "react-redux";
+import { cartAction } from "../../store/CartSlice";
 
-const CartItem: React.FC<{
-  item: { title: String; quantity: number; total: number; price: number };
-}> = (props) => {
-  const { title, quantity, total, price } = props.item;
-
+interface Props {
+  item: Product;
+}
+const CartItem = ({ item }: Props) => {
+  const dispatch = useDispatch();
   const additemHandler = () => {
     alert("item added");
   };
@@ -16,19 +21,27 @@ const CartItem: React.FC<{
   return (
     <li className={classes.item}>
       <header>
-        <h5>{title}</h5>
+        <p>{item.title}</p>
         <div className={classes.price}>
-          {total}
-          <span className={classes.itemprice}>(${price.toFixed(2)}/item)</span>
+          ₹{item.price}
+          <span className={classes.itemprice}>
+            {" "}
+            (₹{item.price.toFixed(2)}/item)
+          </span>
         </div>
       </header>
       <div className={classes.details}>
-        <div className={classes.quantity}>
+        {/* <div className={classes.quantity}>
           x <span>{quantity}</span>
-        </div>
+        </div> */}
         <div className={classes.actions}>
-          <button onClick={removeitemHandler}>-</button>
-          <button onClick={additemHandler}>+</button>
+          <MdDelete
+            onClick={() => dispatch(cartAction.removeItemFromCart(item))}
+            color="red"
+            size="20px"
+            cursor="pointer"
+          />
+          {/* <button onClick={additemHandler}>+</button> */}
         </div>
       </div>
     </li>

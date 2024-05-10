@@ -1,9 +1,12 @@
 import { CiShoppingCart } from "react-icons/ci";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { Product } from "../../Product";
 
 const Header = () => {
+  const cartList: Product[] = useSelector((state: any) => state.cart);
   return (
-    <div className="container">
+    <div className="container sd-header">
       <header className="d-flex justify-content-between py-3 mb-3 border-bottom">
         <ul className="nav nav-pills">
           <li className="nav-item">
@@ -11,7 +14,8 @@ const Header = () => {
               to="/"
               className={`nav-link ${(ob: { isActive: boolean }) =>
                 ob.isActive ? "active" : ""}`}
-              aria-current="page">
+              aria-current="page"
+            >
               Home
             </NavLink>
           </li>
@@ -29,10 +33,11 @@ const Header = () => {
         <NavLink
           to="cart"
           className={`nav-item ${(ob: { isActive: boolean }) =>
-            ob.isActive ? "active" : ""}`}>
+            ob.isActive ? "active" : ""}`}
+        >
           <button className="btn sd-cart-btn">
             <CiShoppingCart size="27px" />
-            <div className="sd-div">0</div>
+            <div className="sd-div">{cartList.length}</div>
           </button>
         </NavLink>
       </header>

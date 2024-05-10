@@ -1,5 +1,9 @@
 import { CiFilter } from "react-icons/ci";
+import { useDispatch } from "react-redux";
+import { itemAction } from "../../store/ItemSlice";
+
 const Filter = () => {
+  const dispatch = useDispatch();
   return (
     <>
       <div className="dropdown">
@@ -14,18 +18,36 @@ const Filter = () => {
         </button>
         <ul className="dropdown-menu">
           <li>
-            <a className="dropdown-item" href="#">
+            <a
+              className="dropdown-item"
+              href="#"
+              onClick={() => {
+                dispatch(itemAction.filterItems("HighLow"));
+              }}
+            >
               Price High to Low
             </a>
           </li>
           <li>
-            <a className="dropdown-item" href="#">
+            <a
+              className="dropdown-item"
+              href="#"
+              onClick={() => {
+                dispatch(itemAction.filterItems("LowHigh"));
+              }}
+            >
               Price Low to High
             </a>
           </li>
           <li>
-            <a className="dropdown-item" href="#">
-              Something else here
+            <a
+              className="dropdown-item"
+              href="#"
+              onClick={() => {
+                dispatch(itemAction.filterItems("Popularity"));
+              }}
+            >
+              Sort by Popularity ⭐
             </a>
           </li>
         </ul>
