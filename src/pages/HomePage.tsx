@@ -10,13 +10,13 @@ const HomePage = () => {
   const itemsPerPage = 6;
   const [currentPage, setCurrentPage] = useState(1);
 
-  const items: Product[] = useSelector((state: any) => state.items);
-  const [itemsList, setItemsList] = useState(items);
+  const itemsList: Product[] = useSelector((state: any) => state.items);
+  // const [itemsList, setItemsList] = useState(items);
 
   // Update itemsList whenever items changes
-  useEffect(() => {
-    setItemsList(items);
-  }, [items]);
+  // useEffect(() => {
+  //   setItemsList(items);
+  // }, [items]);
 
   const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
@@ -35,7 +35,7 @@ const HomePage = () => {
         )}
       />
       <Pagination
-        totalPages={Math.ceil(items.length / itemsPerPage)}
+        totalPages={Math.ceil(itemsList.length / itemsPerPage)}
         currentPage={currentPage}
         handlePageChange={handlePageChange}
       />

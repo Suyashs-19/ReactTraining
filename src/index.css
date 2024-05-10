@@ -62,3 +62,7 @@
   object-fit: contain;
 }
 
+.sd-spinner{
+  margin-top: 240px;
+  margin-left: 550px;
+}

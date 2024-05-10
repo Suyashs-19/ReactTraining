@@ -24,7 +24,8 @@ const itemSlice = createSlice({
                   (itemA, itemB) => itemB.rating.rate - itemA.rating.rate
                 );
               }
-        }
+        },
+        
     }
 });
 
