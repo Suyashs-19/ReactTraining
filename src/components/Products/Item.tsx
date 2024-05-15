@@ -1,15 +1,18 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Product } from "../../Product";
+import { Product } from "../../interfaces/Product";
 import { FaShoppingCart } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { cartAction } from "../../store/CartSlice";
+import { CartProduct } from "../../interfaces/CartProduct";
+import strings from "./Item.json";
 interface Props {
   item: Product;
 }
 const Item = ({ item }: Props) => {
   const dispatch = useDispatch();
-  const cartList: Product[] = useSelector((state: any) => state.cart);
-  const insideCart = cartList.includes(item);
+  const cartList: CartProduct[] = useSelector((state: any) => state.cart);
+  const insideCart = cartList.find((val) => val.id === item.id);
+
   return (
     <div className="col">
       <div className="card" style={{ width: "250px", margin: "12px" }}>
@@ -29,16 +32,23 @@ const Item = ({ item }: Props) => {
           {insideCart ? (
             <a
               className="btn btn-danger"
-              onClick={() => dispatch(cartAction.removeItemFromCart(item))}
+              onClick={() => dispatch(cartAction.removeItemFromCart(item.id))}
             >
-              Remove from Cart <MdDelete />
+              {strings.buttons.removeFromCart} <MdDelete />
             </a>
           ) : (
             <a
               className="btn btn-success"
-              onClick={() => dispatch(cartAction.addItemToCart(item))}
+              onClick={() =>
+                dispatch(
+                  cartAction.addItemToCart({
+                    ...item,
+                    quantity: 1,
+                  })
+                )
+              }
             >
-              Add to Cart <FaShoppingCart />
+              {strings.buttons.addToCart} <FaShoppingCart />
             </a>
           )}
         </div>

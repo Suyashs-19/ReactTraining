@@ -1,10 +1,11 @@
-import { Product } from "../../Product";
+import { Product } from "../../interfaces/Product";
 import Item from "./Item";
 interface Props {
   items: Product[];
 }
 
 const ItemList = ({ items }: Props) => {
+  if (items.length === 0) return null;
   return (
     <div className="container text-center">
       <div className="row">

@@ -1,0 +1,14 @@
+{
+    "titles": {
+      "shoppingCart": "Your Shopping Cart",
+      "emptyCart": "Cart is Empty",
+      "totalPrice": "Total Price: ₹"
+    },
+    "buttons": {
+      "proceedToPay": "Proceed to Pay"
+    },
+    "alerts": {
+      "proceedConfirmation": "Are you sure ?"
+    }
+  }
+  
