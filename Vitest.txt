@@ -1,0 +1,56 @@
+npm i -D vitest
+package.json>
+    "test":"vitest",
+    "test:ui":"vitest --ui"
+
+main.test.ts
+
+vi //auto imports library with help of extension 
+
+
+npm test
+npm run test:ui
+
+
+//setting up React Testing Library
+
+npm i -D @testing-library/react@14.2.0
+
+npm i -D jsdom@24.0.0
+
+
+create vitest.config.ts at root directory
+
+import { defineConfig } from "vitest/config"; //make sure import is 'vitest/config'
+
+export default defineConfig({
+    test:{
+        environment:'jsdom'
+    }
+})
+
+//make sure to export
+
+npm i -D @testing-library/jest-dom //it gives us matchers for testing
+
+
+
+import "@testing-library/jest-dom/vitest";
+
+be sure to import this properly, else we get error 'expect' not found.
+
+
+outside src folder, auto import doesnt work, had manually provide the path.
+
+when we render component, make sure the file name to be example: ItemList.test.tsx
+
+
+//How to access .env variables in vite
+
+if you want to access your env variable TEST_VAR you should prefix it with VITE_
+
+try something like
+VITE_TEST_VAR=123f
+
+you can access it with
+import.meta.env.VITE_TEST_VAR
