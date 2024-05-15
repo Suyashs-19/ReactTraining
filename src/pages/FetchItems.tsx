@@ -10,12 +10,13 @@ const FetchItems = () => {
   useEffect(() => {
     const controller = new AbortController();
     const signal = controller.signal;
-    console.log("USEEFFECT");
+    const API_URL = import.meta.env.VITE_APP_API_URL;
+
     axios
-      .get("https://fakestoreapi.com/products", { signal })
+      .get(API_URL, { signal })
       .then((res) => res.data)
-      .then((item) => {
-        dispatch(itemAction.addItems(item));
+      .then((items) => {
+        dispatch(itemAction.addItems(items));
         dispatch(fetchStatusAction.setFetchStatusDone(true));
       });
 

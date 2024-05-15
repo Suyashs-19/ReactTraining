@@ -1,6 +1,8 @@
 import { CiFilter } from "react-icons/ci";
 import { useDispatch } from "react-redux";
 import { itemAction } from "../../store/ItemSlice";
+import { FILTER_OPTIONS } from "../../utils/constants";
+import strings from "./Filter.json";
 
 const Filter = () => {
   const dispatch = useDispatch();
@@ -13,43 +15,23 @@ const Filter = () => {
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          Filter
+          {strings.buttons.filter}
           <CiFilter />
         </button>
         <ul className="dropdown-menu">
-          <li>
-            <a
-              className="dropdown-item"
-              href="#"
-              onClick={() => {
-                dispatch(itemAction.filterItems("HighLow"));
-              }}
-            >
-              Price High to Low
-            </a>
-          </li>
-          <li>
-            <a
-              className="dropdown-item"
-              href="#"
-              onClick={() => {
-                dispatch(itemAction.filterItems("LowHigh"));
-              }}
-            >
-              Price Low to High
-            </a>
-          </li>
-          <li>
-            <a
-              className="dropdown-item"
-              href="#"
-              onClick={() => {
-                dispatch(itemAction.filterItems("Popularity"));
-              }}
-            >
-              Sort by Popularity ⭐
-            </a>
-          </li>
+          {FILTER_OPTIONS.map((filterValue, index) => (
+            <li key={index}>
+              <a
+                className="dropdown-item"
+                href="#"
+                onClick={() => {
+                  dispatch(itemAction.filterItems(filterValue.value));
+                }}
+              >
+                {filterValue.label}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
     </>

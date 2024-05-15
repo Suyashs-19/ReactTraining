@@ -6,7 +6,7 @@ import Spinner from "../components/Spinner/Spinner";
 
 const Layout = () => {
   const fetchingDone = useSelector((state: any) => state.fetchStatus);
-  console.log(fetchingDone, "bolo");
+
   return (
     <>
       <Header />
