@@ -18,7 +18,8 @@ const FetchItems = () => {
       .then((items) => {
         dispatch(itemAction.addItems(items));
         dispatch(fetchStatusAction.setFetchStatusDone(true));
-      });
+      })
+      .catch((err) => console.log(err.message));
 
     return () => {
       controller.abort();
