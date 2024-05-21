@@ -1,9 +1,18 @@
 import classes from "./CartItem.module.scss";
 
-const CartItem: React.FC<{
-  item: { title: String; quantity: number; total: number; price: number };
-}> = (props) => {
-  const { title, quantity, total, price } = props.item;
+type CartItem = {
+  title: string;
+  quantity: number;
+  total: number;
+  price: number;
+};
+
+type CartProps = {
+  item: CartItem;
+};
+
+export default function CartItem({ item }: CartProps) {
+  const { title, quantity, total, price } = item;
 
   const additemHandler = () => {
     alert("item added");
@@ -33,6 +42,4 @@ const CartItem: React.FC<{
       </div>
     </li>
   );
-};
-
-export default CartItem;
+}

@@ -1,5 +1,5 @@
 import classes from "./Cart.module.scss";
-import CartItem from "./CartItem";
+import CartItem  from "./CartItem";
 import { CARTITEMS } from "../../utils/constants";
 
 const Cart: React.FC = () => {

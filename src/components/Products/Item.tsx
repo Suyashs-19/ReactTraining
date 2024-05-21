@@ -15,6 +15,7 @@ const Item = () => {
           </a>
         </div>
       </div>
+      <button onClick={() => alert("hi there")}>if there </button>
     </div>
   );
 };
